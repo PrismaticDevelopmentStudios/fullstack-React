@@ -1,3 +1,4 @@
+// Module Declarations
 const express = require('express');
 const cors = require('cors');
 const PORT = 5000;
@@ -5,6 +6,7 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const morgan = require('morgan'); 
 
+// Express app declaration and url endocing etc
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -51,6 +53,7 @@ app.post('/edit', (req, res) => {
     });
 });
 
+// Server PORT listening
 app.listen(PORT, function(err) {
     if (err) console.error
     console.log('Server running on PORT', PORT)
