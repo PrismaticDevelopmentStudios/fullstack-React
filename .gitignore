@@ -1,2 +1,1 @@
-#ignore db.js file in index.js because contains database PW
-index.js
+server/db.js
