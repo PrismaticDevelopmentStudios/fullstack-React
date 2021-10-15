@@ -2,7 +2,6 @@
 const express = require('express');
 const cors = require('cors');
 const PORT = 5000;
-const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const morgan = require('morgan'); 
 
@@ -14,13 +13,8 @@ app.use(morgan('dev'));
 
 app.use(cors());
 
-// Databse Declaration
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'mhc22Lde55s',
-    database: 'logins'
-});
+// database
+const db = require('./db');
 console.log('Connected to logins DB');
 
 // Routes
