@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Keychain from './components/Keychain';
 import Nav from './components/Nav';
-import Home from './components/Home'
+import Home from './components/Home';
+import Results from './components/Results'
 //import axios from 'axios';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Nav />
       <Route exact path="/" component={Home} />
       <Route exact path="/keychain" component={Keychain} />
+      <Route exact path="/results" component={Results} />
     </Router>
   );
 }

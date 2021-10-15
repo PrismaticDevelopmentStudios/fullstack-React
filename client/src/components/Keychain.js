@@ -53,25 +53,25 @@ const Keychain = () => {
     // Return web page React element
     return (
         <div className="container content">
-            <button onClick={getData}>Data</button>
             <div className="inline">
                 <h3>{data}</h3>
                 <h3>data</h3>
                 <h3>data</h3>
                 <h3>data</h3>
                 <h3>data</h3>
+                <button className="btn" onClick={getData}>Data</button>
             </div>
             <div className="inline">
                 <form className="inline">
                     <h2>Add Login</h2>
-                    <input type="text" name="website" placeholder="Type of Account" required onChange={handleChange} />
-                    <input type="text" name="account" placeholder="Name of Account" required onChange={handleChange} />
+                    <input type="text" name="website" placeholder="Website" required onChange={handleChange} />
+                    <input type="text" name="account" placeholder="Email Address" required onChange={handleChange} />
                     <input type="text" name="password" placeholder="Password" required onChange={handleChange} />
                     <button onClick={handleSubmit} className="submit">Submit</button>
                 </form>
             </div>
             <footer>
-                <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                <div className="footText">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
             </footer>
         </div>
     )

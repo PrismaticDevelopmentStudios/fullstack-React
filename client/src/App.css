@@ -30,17 +30,9 @@ h1, h2, h3, h4, h5, h6{
   color: white;
 }
 
-.link:active {
-  color: gold;
-}
-
 form {
-  margin: 0 auto;
   width: 33%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  text-align: center;
 }
 
 input {
@@ -70,13 +62,16 @@ input {
   height: 100vh;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
 }
 
 footer {
   position: absolute;
   bottom: 0;
   font-size: .75em;
-  right: 0;
+  right: 0%;
 }
 
 .icon {
@@ -84,12 +79,6 @@ footer {
   margin: 0;
   padding: 0;
   margin-left: 5%;
-}
-
-.content {
-  padding-left: 25%;
-  padding-right: 25%;
-  margin: 0 auto;
 }
 
 .inline {
@@ -118,7 +107,6 @@ button {
   border: none;
   background-color: rgb(48, 165, 77);
   box-shadow: 1px 2px 3px rgb(0, 0, 0, 0.5);
-  padding: .5%;
   color: white;
   border-radius: 5px;
   font-weight: 600;
@@ -127,6 +115,19 @@ button {
 
 button:hover {
   opacity: .5;
+}
+
+.btn {
+  padding: 10%;
+}
+
+table {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+td {
+  text-indent: 2em;
 }
 
 
