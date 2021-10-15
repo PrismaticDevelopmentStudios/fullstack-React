@@ -32,34 +32,28 @@ const Keychain = () => {
     };
 
     // Axios GET Response
-    var data;
-    const getData= (e) => {
-        e.preventDefault();
-        axios.get(`http://localhost:5000/keychain`, {data})
-        .then(Response => {
-            data = Response.data
-            for (let i = 0; i < data.length; i++) {
-                const site = data[i].website;
-                const account = data[i].account;
-                const password = data[i].password;
-                console.log(site, account, password);
-            }
-        })
-        .catch(err => {
-            console.error(err);
-        });
-    };
+     // Create state variables
+     const initialResponseData = [];
+     let [responseData, setResponseData] = React.useState(initialResponseData);
+     // fetches data
+     const fetchData = (e) => {
+         e.preventDefault()
+         axios.get(`http://localhost:5000/keychain`, {responseData})
+         .then((response)=>{
+             setResponseData(responseData.push(response.data))
+             console.log(responseData)
+         })
+         .catch((error) => {
+             console.log(error)
+         })
+     }
     
     // Return web page React element
     return (
         <div className="container content">
-            <div className="inline">
-                <h3>{data}</h3>
-                <h3>data</h3>
-                <h3>data</h3>
-                <h3>data</h3>
-                <h3>data</h3>
-                <button className="btn" onClick={getData}>Data</button>
+            <div className="inline" onLoad={fetchData}>
+                <h3>{responseData}</h3>
+                <button className="btn" onClick={fetchData}>Data</button>
             </div>
             <div className="inline">
                 <form className="inline">
