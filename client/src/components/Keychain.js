@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 // Initialize the form emopty data object
@@ -31,30 +31,36 @@ const Keychain = () => {
         console.log(formData);
     };
 
+// Code Breaks Here ↓↓↓
     // Axios GET Response
-     // Create state variables
-     const initialResponseData = [];
-     let [responseData, setResponseData] = React.useState(initialResponseData);
-     // fetches data
-     const fetchData = (e) => {
-         e.preventDefault()
-         axios.get(`http://localhost:5000/keychain`, {responseData})
-         .then((response)=>{
-             setResponseData(responseData.push(response.data))
-             console.log(responseData)
-         })
-         .catch((error) => {
-             console.log(error)
-         })
-     }
-    
+    const [resData, setResdata] = useState([]);
+    let finalData = resData;
+    const url = 'http://localhost:5000/keychain';
+    const getData = e => {
+         axios.get(url)
+        .then(Response => {
+            finalData.push(Response.data)
+            setResdata(finalData);
+            console.log(finalData[0]);
+        })
+        .catch(err => {
+            console.error(err);
+        })
+    }
+
     // Return web page React element
     return (
         <div className="container content">
-            <div className="inline" onLoad={fetchData}>
-                <h3>{responseData}</h3>
-                <button className="btn" onClick={fetchData}>Data</button>
+        {/* This does not return the data */}
+            <div className="inline">
+                <>
+                    {resData.map(({data}) => (
+                        <p key={data}>{data.website}</p>
+                    ))}
+                </>
+                <button onClick={getData}>Data</button>
             </div>
+            {/* Good ↓↓↓ */}
             <div className="inline">
                 <form className="inline">
                     <h2>Add Login</h2>
